@@ -1,0 +1,117 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Continent War · Live 4D Labs S1 check-in standings</title>
+<meta name="description" content="Live Season 1 check-in standings for the six continents on 4D Labs, today's on-chain battle, a Rally Africa guide and a shareable check-in card.">
+<meta name="theme-color" content="#0E0F14">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Continent War">
+<meta property="og:title" content="Continent War · 4D Labs S1 check-in standings">
+<meta property="og:description" content="Which continent is winning 4D Labs Season 1? Live SNAPS, today's on-chain check-ins, and your own check-in card.">
+<meta property="og:url" content="https://4d-continent-war.sites.tab.bot/">
+<meta property="og:image" content="https://4d-continent-war.sites.tab.bot/og.png">
+<meta property="og:image:width" content="1200"><meta property="og:image:height" content="675">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://4d-continent-war.sites.tab.bot/og.png">
+<link rel="icon" type="image/png" href="favicon.png">
+<link rel="apple-touch-icon" href="favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="top">
+  <div class="wrap top-in">
+    <img class="logo" src="logo-4dlabs.png" alt="4D Labs" width="130" height="26">
+    <span class="tag">S1 · Continent War</span>
+  </div>
+</header>
+
+<main id="main" class="wrap">
+  <section class="hero" aria-labelledby="h1">
+    <h1 id="h1">Continent War</h1>
+    <p class="lede">Every daily check-in in 4D Labs Season 1 counts for one of six continents. Here is who is winning, live.</p>
+    <div class="leader" id="leaderLine" aria-live="polite">Loading live standings…</div>
+  </section>
+
+  <section class="card" aria-labelledby="h-season">
+    <div class="card-h">
+      <h2 id="h-season">Season standings</h2>
+      <span class="live"><i></i>Live</span>
+    </div>
+    <p class="sub">SNAPS per continent, the same number 4D Labs' dApp shows on each landmark.</p>
+    <ol class="rows" id="seasonRows" aria-label="Season 1 SNAPS by continent"></ol>
+    <p class="src" id="seasonSrc">Source: 4D Labs dApp public stats.</p>
+  </section>
+
+  <section class="card" aria-labelledby="h-today">
+    <div class="card-h">
+      <h2 id="h-today">Today's battle</h2>
+      <span class="reset" id="resetIn" title="Daily check-in resets at 00:00 UTC">New day in --:--:--</span>
+    </div>
+    <p class="sub">Check-ins sent today (UTC day) to the 4D Labs check-in contract on BNB Chain.</p>
+    <ol class="rows" id="todayRows" aria-label="Today's on-chain check-ins by continent"></ol>
+    <p class="note" id="yesterday" hidden></p>
+    <p class="src" id="todaySrc">Source: CheckIn events on BNB Chain.</p>
+  </section>
+
+  <section class="card rally" id="rally" aria-labelledby="h-rally">
+    <h2 id="h-rally">Rally Africa</h2>
+    <p class="rally-stat" id="rallyStat">Africa's position is loading…</p>
+    <ol class="steps">
+      <li><b>Open the 4D Labs dApp</b> at dapp.4dlabs.space/tasks and log in.</li>
+      <li><b>Connect a wallet on BNB Chain</b> with a little BNB for gas. 4D Labs charges no check-in fee; you only pay the small network fee.</li>
+      <li><b>Pick the Pyramid card (Africa)</b>, tap Check in and confirm the transaction.</li>
+      <li><b>Come back every day.</b> 5 Scores per check-in, plus 10 bonus Scores on every 7th day in a row.</li>
+    </ol>
+    <div class="btns">
+      <a class="btn primary" href="https://dapp.4dlabs.space/tasks" target="_blank" rel="noopener">Check in for Africa</a>
+      <a class="btn" href="#maker">Make my card</a>
+    </div>
+    <p class="src">Steps from the 4D Labs docs (Task Hub, Score) and the dApp. The daily reset time comes from the dApp's own countdown (00:00 UTC, 1:00 AM in Lagos).</p>
+  </section>
+
+  <section class="card" id="maker" aria-labelledby="h-maker">
+    <h2 id="h-maker">Your check-in card</h2>
+    <p class="sub">Pick your continent, add your X handle if you like, and share it.</p>
+    <div class="chips" id="chips" role="radiogroup" aria-label="Continent"></div>
+    <label class="field">X handle (optional)
+      <input id="handle" type="text" inputmode="text" autocomplete="off" autocapitalize="off" spellcheck="false" maxlength="16" placeholder="@yourhandle">
+    </label>
+    <div class="canvas-wrap"><canvas id="cardCanvas" width="1200" height="675" role="img" aria-label="Preview of your check-in card"></canvas></div>
+    <div class="btns">
+      <button class="btn primary" id="shareX" type="button">Share on X</button>
+      <button class="btn" id="shareSheet" type="button" hidden>Share…</button>
+      <button class="btn" id="download" type="button">Download</button>
+    </div>
+    <p class="msg" id="shareMsg" aria-live="polite"></p>
+  </section>
+
+  <section class="card" aria-labelledby="h-official">
+    <h2 id="h-official">Official updates</h2>
+    <p class="sub">Region posts from @4Dlabs_Official on X.</p>
+    <ul class="feed" id="feed"><li class="muted">Loading posts…</li></ul>
+  </section>
+
+  <section class="card about" aria-labelledby="h-about">
+    <h2 id="h-about">Where the numbers come from</h2>
+    <ul>
+      <li><b>Season standings:</b> 4D Labs' public dApp stats for Season 1, refreshed every minute. These are the "Snaps" counts on each landmark card in the dApp.</li>
+      <li><b>Today's battle:</b> counted straight from the check-in contract on BNB Chain (<a href="https://bscscan.com/address/0x654612a216517bdbbA8356Ff9462944AC5165fDc" target="_blank" rel="noopener">0x6546…5fDc</a>), by UTC day. These are transactions sent, so they can differ a little from what the dApp scores.</li>
+      <li><b>Official updates:</b> posts from @4Dlabs_Official, linked to the original.</li>
+    </ul>
+  </section>
+</main>
+
+<footer class="foot">
+  <div class="wrap">
+    <p>Community-built by <a href="https://x.com/iamlogtun" target="_blank" rel="noopener">@iamlogtun</a>. Not affiliated with 4D Labs.</p>
+    <p class="muted">4D Labs logo from the official 4D Labs brand kit.</p>
+  </div>
+</footer>
+<script src="app.js?v=2" defer></script>
+</body>
+</html>

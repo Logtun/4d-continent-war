@@ -1,0 +1,16 @@
+{
+ "kind": "worker",
+ "entry": "_worker.js",
+ "worker": {
+  "compatibility_date": "2026-08-01",
+  "compatibility_flags": [
+   "nodejs_compat"
+  ]
+ },
+ "bindings": [
+  {
+   "type": "r2",
+   "name": "FILES"
+  }
+ ]
+}
