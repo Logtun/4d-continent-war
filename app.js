@@ -3,7 +3,7 @@
 const ORDER = ["AFR", "ASN", "EUR", "NAM", "OCE", "SAM"];
 const NAME = { AFR: "Africa", ASN: "Asia", EUR: "Europe", NAM: "North America", OCE: "Oceania", SAM: "South America" };
 const LANDMARK = { AFR: "Pyramid", ASN: "Great Wall", EUR: "Eiffel", NAM: "Liberty", OCE: "Opera", SAM: "Christ" };
-const DOMAIN = "4d-continent-war.sites.tab.bot";
+const DOMAIN = "4d-continent-war.vercel.app";
 const $ = (id) => document.getElementById(id);
 const fmt = (n) => Number(n || 0).toLocaleString("en-US");
 const el = (tag, cls, html) => { const e = document.createElement(tag); if (cls) e.className = cls; if (html != null) e.innerHTML = html; return e; };
@@ -141,7 +141,7 @@ function drawCard() {
   const h = handleVal();
   x.textAlign = "right";
   if (h) { x.fillStyle = accent; x.font = "600 30px " + F; x.fillText(h, W - 64, by + 40); }
-  x.fillStyle = "#AEAFB8"; x.font = "400 20px " + F; x.fillText("by @iamlogtun · " + DOMAIN, W - 64, H - 40);
+  x.fillStyle = "#AEAFB8"; x.font = "400 20px " + F; x.fillText(DOMAIN, W - 64, H - 40);
   x.textAlign = "left";
 }
 function cardBlob() { return new Promise((res) => $("cardCanvas").toBlob(res, "image/png")); }

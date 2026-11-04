@@ -15,7 +15,7 @@ const SEED_BLOCK = 131525097;          // first block of 2026-11-04 00:00 UTC (f
 const SEED_DAY = "2026-11-04";
 const CHUNK = 1500;
 const CONT = ["AFR", "ASN", "EUR", "NAM", "OCE", "SAM"];
-const ORIGIN = "https://4d-continent-war.sites.tab.bot";
+const ORIGIN = "https://4d-continent-war.vercel.app";
 
 const J = (o, s = 200, maxAge = 0) => new Response(JSON.stringify(o), { status: s, headers: {
   "content-type": "application/json; charset=utf-8", "cache-control": maxAge ? "public, max-age=" + maxAge : "no-store",
