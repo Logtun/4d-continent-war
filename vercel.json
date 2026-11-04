@@ -1,0 +1,12 @@
+{
+  "rewrites": [
+    {
+      "source": "/api/:path*",
+      "destination": "https://4d-continent-war.sites.tab.bot/api/:path*"
+    },
+    {
+      "source": "/s/:path*",
+      "destination": "https://4d-continent-war.sites.tab.bot/s/:path*"
+    }
+  ]
+}
